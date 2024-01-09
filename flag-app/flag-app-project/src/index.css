@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Weights: 300, 600, 800 */
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.hrr{
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #333 inset;
+}
