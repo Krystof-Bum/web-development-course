@@ -7,10 +7,8 @@ body{
     font-family: 'Nunito Sans', sans-serif;
     padding-left: 100px;
     padding-right: 100px;
+    background-color: hsl(0, 0%, 98%)
 }
 
-.hrr{
-    height: 10px;
-    border: 0;
-    box-shadow: 0 10px 10px -10px #333 inset;
-}
+
+

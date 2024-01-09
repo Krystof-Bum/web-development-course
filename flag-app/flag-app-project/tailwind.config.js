@@ -6,6 +6,9 @@ export default {
       boxShadow: {
         inner: "0 15px 20px -15px rgba(150, 150, 150, 0.5) inset",
       },
+      colors: {
+        customLightGray: "hsl(0, 0%, 52%)",
+      },
     },
   },
   plugins: [],
