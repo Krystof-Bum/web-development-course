@@ -1,7 +1,7 @@
 export interface Country {
-  name: string;
+  name: { official: string };
   population: number;
   region: string;
   capital: string;
-  flag: string;
+  flags: { png: string };
 }
