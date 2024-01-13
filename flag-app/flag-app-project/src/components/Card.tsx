@@ -15,9 +15,12 @@ const Card = ({ country }: Props) => {
         <div className="pl-5 pt-5 pb-10">
           <h1 className=" font-bold pb-4">{country.name.official}</h1>
           <div className="flex flex-col gap-[2px]">
-            <CardItem title="Population" value="Europe" />
-            <CardItem title="Region" value="Europe" />
-            <CardItem title="Capital" value="Prague" />
+            <CardItem
+              title="Population"
+              value={country.population.toLocaleString("en-US")}
+            />
+            <CardItem title="Region" value={country.region} />
+            <CardItem title="Capital" value={country.capital} />
           </div>
         </div>
       </div>
