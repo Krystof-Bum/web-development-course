@@ -1,5 +1,6 @@
 import useCountries from "../hooks/useCountries";
 import Card from "./Card";
+import ErrorMessage from "./ErrorMessage";
 
 interface Props {
   searchInput: string;
@@ -7,9 +8,9 @@ interface Props {
 
 const CardWrapper = ({ searchInput }: Props) => {
   const { countries, error, isLoading } = useCountries(searchInput);
-  // todo
+
   if (isLoading) console.log(isLoading);
-  if (error) console.log(error);
+  if (error) return <ErrorMessage searchInput={searchInput} />;
 
   return (
     <>

@@ -14,6 +14,8 @@ const useCountries = (searchedQuery?: string) => {
     const endpoint = searchedQuery ? `/name/${searchedQuery}` : "/all";
 
     setLoading(true);
+    setError("");
+
     apiClient
       .get<Country[]>(endpoint, { signal: controller.signal })
       .then((res) => {
