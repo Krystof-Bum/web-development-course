@@ -4,4 +4,5 @@ export interface Country {
   region: string;
   capital: string;
   flags: { png: string };
+  cca3: string;
 }

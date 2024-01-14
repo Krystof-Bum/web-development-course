@@ -3,7 +3,7 @@ import { Country } from "../components/interfaces/Country";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
-const useCountries = () => {
+const useCountries = (searchedQuery?: string) => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -11,9 +11,11 @@ const useCountries = () => {
   useEffect(() => {
     const controller = new AbortController();
 
+    const endpoint = searchedQuery ? `/name/${searchedQuery}` : "/all";
+
     setLoading(true);
     apiClient
-      .get<Country[]>("/all", { signal: controller.signal })
+      .get<Country[]>(endpoint, { signal: controller.signal })
       .then((res) => {
         setCountries(res.data);
         setLoading(false);
@@ -25,7 +27,7 @@ const useCountries = () => {
       });
 
     return () => controller.abort();
-  }, []);
+  }, [searchedQuery]);
 
   return { countries, error, isLoading };
 };
