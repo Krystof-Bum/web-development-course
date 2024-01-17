@@ -1,18 +1,17 @@
 import { useState } from "react";
-import CardWrapper from "./components/CardWrapper";
-import Header from "./components/Header";
-import SearchFilterWrapper from "./components/SearchFilterWrapper";
+import { CardWrapper, Header, SearchFilterWrapper } from "./components";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
 
+  const handleSearch = (searchText: string) => {
+    setSearchInput(searchText);
+  };
+
   return (
     <>
       <Header />
-      <SearchFilterWrapper
-        onSearch={(searchText: string) => setSearchInput(searchText)}
-      />
-
+      <SearchFilterWrapper onSearch={handleSearch} />
       <CardWrapper searchInput={searchInput} />
     </>
   );

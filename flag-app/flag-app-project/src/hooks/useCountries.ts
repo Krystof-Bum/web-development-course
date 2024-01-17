@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Country } from "../components/interfaces/Country";
+
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
+import { Country } from "../components/interfaces";
 
-const useCountries = (searchedQuery?: string) => {
+export const useCountries = (searchedQuery?: string) => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -33,5 +34,3 @@ const useCountries = (searchedQuery?: string) => {
 
   return { countries, error, isLoading };
 };
-
-export default useCountries;

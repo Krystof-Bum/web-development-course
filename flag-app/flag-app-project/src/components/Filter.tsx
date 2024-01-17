@@ -1,6 +1,6 @@
 import { RiArrowDropDownLine } from "react-icons/ri";
 
-const Filter = () => {
+export const Filter = () => {
   return (
     <div className="relative">
       <select
@@ -22,5 +22,3 @@ const Filter = () => {
     </div>
   );
 };
-
-export default Filter;

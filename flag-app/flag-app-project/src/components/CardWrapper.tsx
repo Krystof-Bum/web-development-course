@@ -1,4 +1,4 @@
-import useCountries from "../hooks/useCountries";
+import { useCountries } from "../hooks";
 import Card from "./Card";
 import ErrorMessage from "./ErrorMessage";
 
@@ -6,21 +6,17 @@ interface Props {
   searchInput: string;
 }
 
-const CardWrapper = ({ searchInput }: Props) => {
+export const CardWrapper = ({ searchInput }: Props) => {
   const { countries, error, isLoading } = useCountries(searchInput);
 
-  if (isLoading) console.log(isLoading);
+  if (isLoading) return <p>Loading...</p>;
   if (error) return <ErrorMessage searchInput={searchInput} />;
 
   return (
-    <>
-      <div className="cards-layout">
-        {countries.map((country) => (
-          <Card country={country} key={country.cca3} />
-        ))}
-      </div>
-    </>
+    <div className="cards-layout">
+      {countries.map((country) => (
+        <Card country={country} key={country.cca3} />
+      ))}
+    </div>
   );
 };
-
-export default CardWrapper;

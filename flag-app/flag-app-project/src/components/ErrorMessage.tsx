@@ -6,7 +6,7 @@ const ErrorMessage = ({ searchInput }: Props) => {
   return (
     <p>
       No country matched with:
-      <span className=" font-semibold">{searchInput}</span>
+      <span className="font-semibold">{searchInput}</span>
     </p>
   );
 };

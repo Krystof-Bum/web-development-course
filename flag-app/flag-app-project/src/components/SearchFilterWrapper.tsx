@@ -1,11 +1,10 @@
-import Filter from "./Filter";
-import Search from "./Search";
+import { Filter, Search } from "../components";
 
 interface Props {
   onSearch: (searchText: string) => void;
 }
 
-const SearchFilterWrapper = ({ onSearch }: Props) => {
+export const SearchFilterWrapper = ({ onSearch }: Props) => {
   return (
     <div className="flex justify-between mb-16">
       <Search onSearch={onSearch} />
@@ -13,5 +12,3 @@ const SearchFilterWrapper = ({ onSearch }: Props) => {
     </div>
   );
 };
-
-export default SearchFilterWrapper;

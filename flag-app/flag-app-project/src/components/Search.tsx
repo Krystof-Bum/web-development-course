@@ -5,16 +5,16 @@ interface Props {
   onSearch: (searchText: string) => void;
 }
 
-const Search = ({ onSearch }: Props) => {
+export const Search = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (ref.current) onSearch(ref.current.value);
+  };
+
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <div className="flex items-center pl-5 pt-5 pb-5 bg-white w-[480px] rounded-lg shadow-sm">
         <IoMdSearch size={23} color="hsl(0, 0%, 52%)" />
         <input
@@ -27,5 +27,3 @@ const Search = ({ onSearch }: Props) => {
     </form>
   );
 };
-
-export default Search;
