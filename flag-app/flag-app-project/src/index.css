@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Weights: 300, 600, 800 */
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: hsl(0, 0%, 98%)
+}
+
+
+
+.cards-layout{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 80px
+}
