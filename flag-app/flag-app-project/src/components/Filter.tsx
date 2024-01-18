@@ -1,12 +1,16 @@
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { useDarkMode } from "../hooks";
 
 export const Filter = () => {
+  const { mode } = useDarkMode();
   return (
     <div className="relative">
       <select
         // value={value}
         // onChange={onChange}
-        className="pl-5 pt-5 pb-5 bg-white w-56 rounded-lg shadow-sm appearance-none"
+        className={`pl-5 pt-5 pb-5 bg-white w-56 rounded-lg shadow-sm appearance-none ${
+          mode === "dark" ? "bg-darkModeBlack shadow-white" : "bg-white"
+        }`}
       >
         {/* <option value={option.value}> */}
         <option>Filter by Region</option>
