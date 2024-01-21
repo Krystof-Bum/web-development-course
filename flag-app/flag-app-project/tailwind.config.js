@@ -8,6 +8,7 @@ export default {
       },
       colors: {
         customLightGray: "hsl(0, 0%, 52%)",
+        darkModeBlack: "#121212",
       },
     },
   },
