@@ -1,1 +1,1 @@
-export * from "./darkModeContext";
+export * from "./DarkModeContext";

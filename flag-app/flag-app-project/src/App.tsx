@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { CardWrapper, Header, SearchFilterWrapper } from "./components";
+import { useDarkMode } from "./hooks";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
-import { useDarkMode } from "./hooks";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
