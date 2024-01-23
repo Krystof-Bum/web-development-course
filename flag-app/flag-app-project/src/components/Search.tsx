@@ -1,18 +1,15 @@
 import { useRef } from "react";
 import { IoMdSearch } from "react-icons/io";
-import { useDarkMode } from "../hooks";
+import { useCountries, useDarkMode } from "../hooks";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-export const Search = ({ onSearch }: Props) => {
+export const Search = () => {
+  const { handleSearch } = useCountries();
   const { mode } = useDarkMode();
   const ref = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (ref.current) onSearch(ref.current.value);
+    if (ref.current) handleSearch(ref.current.value);
   };
 
   return (

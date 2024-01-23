@@ -1,13 +1,9 @@
 import { Filter, Search } from "../components";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-export const SearchFilterWrapper = ({ onSearch }: Props) => {
+export const SearchFilterWrapper = () => {
   return (
     <div className="flex justify-between mb-16">
-      <Search onSearch={onSearch} />
+      <Search />
       <Filter />
     </div>
   );
