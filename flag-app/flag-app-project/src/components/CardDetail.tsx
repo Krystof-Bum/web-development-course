@@ -1,8 +1,9 @@
-import { FaArrowLeft } from "react-icons/fa6";
 import { useDarkMode } from "../hooks";
 import { BorderCountry } from "./BorderCountry";
 import CardItem from "./CardItem";
 import { Country } from "../interfaces";
+
+import { FaArrowLeft } from "react-icons/fa6";
 
 interface Props {
   handleClickBack: () => void;

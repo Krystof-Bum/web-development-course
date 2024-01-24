@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-
-import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
+
 import { Country } from "../interfaces";
+import { apiClient } from "../services";
 
 export const useApiData = (searchedQuery?: string) => {
   const [countries, setCountries] = useState<Country[]>([]);

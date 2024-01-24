@@ -1,6 +1,5 @@
-import { ThemeProvider } from "@emotion/react";
-import { CssBaseline } from "@mui/material";
 import { useState } from "react";
+
 import CountriesContextProvider from "./CountriesContextProvider";
 import {
   CardDetail,
@@ -10,6 +9,9 @@ import {
 } from "./components";
 import { useDarkMode } from "./hooks";
 import { CardDetailType, Country } from "./interfaces";
+
+import { ThemeProvider } from "@emotion/react";
+import { CssBaseline } from "@mui/material";
 
 function App() {
   const { theme } = useDarkMode();

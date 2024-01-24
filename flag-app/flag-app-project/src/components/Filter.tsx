@@ -1,5 +1,5 @@
-import { RiArrowDropDownLine } from "react-icons/ri";
 import { useDarkMode } from "../hooks";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 export const Filter = () => {
   const { mode } = useDarkMode();

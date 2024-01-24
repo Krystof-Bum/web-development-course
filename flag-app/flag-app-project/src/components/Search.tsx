@@ -1,6 +1,7 @@
 import { useRef } from "react";
-import { IoMdSearch } from "react-icons/io";
 import { useCountries, useDarkMode } from "../hooks";
+
+import { IoMdSearch } from "react-icons/io";
 
 export const Search = () => {
   const { handleSearch } = useCountries();
