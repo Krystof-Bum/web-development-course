@@ -11,13 +11,13 @@ export const BorderCountry = ({ country }: Props) => {
 
   if (!borders) return <p>Country has no borders</p>;
 
+  const darkModeClassName = mode === "dark" ? "shadow-white" : "";
+
   return (
     <>
       {borders.map((border) => (
         <div
-          className={`border shadow-md px-6 ${
-            mode === "dark" ? "shadow-white" : ""
-          }`}
+          className={`border shadow-md px-6 ${darkModeClassName}`}
           key={border}
         >
           {border}

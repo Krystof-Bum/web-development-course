@@ -27,13 +27,15 @@ export const CardDetail = ({ handleClickBack, country }: Props) => {
   const languageCode = Object.keys(languages)[0];
   const language = languages[languageCode];
 
+  const baseClassName =
+    "inline-flex items-center gap-2 border rounded-md shadow-md mb-20 cursor-pointer px-6 py-1";
+  const darkModeClassName = mode === "dark" ? "shadow-white" : "";
+
   return (
     <div>
       <div
         onClick={handleClickBack}
-        className={`inline-flex items-center gap-2 border rounded-md shadow-md mb-20 cursor-pointer px-6 py-1 ${
-          mode === "dark" ? "shadow-white" : ""
-        }`}
+        className={`${baseClassName} ${darkModeClassName}`}
       >
         <FaArrowLeft />
         <button>Back</button>

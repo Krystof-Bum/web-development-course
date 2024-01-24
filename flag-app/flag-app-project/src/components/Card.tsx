@@ -10,12 +10,14 @@ interface Props {
 const Card = ({ country, handleCardClick }: Props) => {
   const { mode } = useDarkMode();
 
+  const baseClassName =
+    "w-64 rounded-md shadow-md overflow-hidden cursor-pointer";
+  const darkModeClassName = mode === "dark" ? "shadow-white" : "";
+
   return (
     <div
       onClick={() => handleCardClick(country)}
-      className={`w-64 rounded-md shadow-md overflow-hidden cursor-pointer ${
-        mode === "dark" ? "shadow-white" : ""
-      }`}
+      className={`${baseClassName} ${darkModeClassName}`}
     >
       <div>
         <img
