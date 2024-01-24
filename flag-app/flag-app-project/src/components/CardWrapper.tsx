@@ -15,7 +15,7 @@ export const CardWrapper = ({ handleCardClick }: Props) => {
 
   return (
     <div className="cards-layout">
-      {countries.map((country) => (
+      {countries?.map((country) => (
         <div key={country.cca3}>
           {isLoading && <CardSkeleton />}
           {!isLoading && (

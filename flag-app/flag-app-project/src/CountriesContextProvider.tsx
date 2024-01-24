@@ -4,7 +4,7 @@ import { useApiData } from "./hooks";
 
 const CountriesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [searchInput, setSearchInput] = useState("");
-  const { countries, error, isLoading } = useApiData(searchInput);
+  const { data: countries, error, isLoading } = useApiData(searchInput);
 
   const handleSearch = (searchText: string) => {
     setSearchInput(searchText);

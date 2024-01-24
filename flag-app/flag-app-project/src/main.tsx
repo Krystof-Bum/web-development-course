@@ -4,11 +4,16 @@ import App from "./App.tsx";
 import DarkModeContextProvider from "./DarkModeContextProvider.tsx";
 
 import "./index.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <DarkModeContextProvider>
-      <App />
-    </DarkModeContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <DarkModeContextProvider>
+        <App />
+      </DarkModeContextProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
