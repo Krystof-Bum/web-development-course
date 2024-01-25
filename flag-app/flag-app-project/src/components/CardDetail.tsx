@@ -1,4 +1,4 @@
-import { useDarkMode } from "../hooks";
+import { useCountryDetails, useDarkMode } from "../hooks";
 import { BorderCountry } from "./BorderCountry";
 import CardItem from "./CardItem";
 import { Country } from "../interfaces";
@@ -13,19 +13,16 @@ interface Props {
 export const CardDetail = ({ handleClickBack, country }: Props) => {
   const { mode } = useDarkMode();
 
-  const { name, population, region, capital, tld, currencies, languages } =
-    country;
-
-  const countryNameCode = Object.keys(name.nativeName)[0];
-  const nativeName = name.nativeName[countryNameCode].official;
-
-  const domain = tld[0];
-
-  const countryCurrencyCode = Object.keys(currencies)[0];
-  const currency = currencies[countryCurrencyCode].name;
-
-  const languageCode = Object.keys(languages)[0];
-  const language = languages[languageCode];
+  const {
+    name,
+    population,
+    region,
+    capital,
+    nativeName,
+    domain,
+    currency,
+    language,
+  } = useCountryDetails(country);
 
   const baseClassName =
     "inline-flex items-center gap-2 border rounded-md shadow-md mb-20 cursor-pointer px-6 py-1";

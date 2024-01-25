@@ -12,10 +12,11 @@ export const CardWrapper = ({ handleCardClick }: Props) => {
   const { countries, error, isLoading } = useCountries();
 
   if (error) return <ErrorMessage />;
+  if (!countries) return;
 
   return (
     <div className="cards-layout">
-      {countries?.map((country) => (
+      {countries.map((country) => (
         <div key={country.cca3}>
           {isLoading && <CardSkeleton />}
           {!isLoading && (
