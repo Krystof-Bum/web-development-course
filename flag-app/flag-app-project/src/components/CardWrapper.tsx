@@ -3,6 +3,7 @@ import { Country } from "../interfaces";
 import Card from "./Card";
 import { CardSkeleton } from "./CardSkeleton";
 import ErrorMessage from "./ErrorMessage";
+import { NoCountriesFound } from "./NoCountriesFound";
 
 interface Props {
   handleCardClick: (country: Country) => void;
@@ -12,7 +13,7 @@ export const CardWrapper = ({ handleCardClick }: Props) => {
   const { countries, error, isLoading } = useCountries();
 
   if (error) return <ErrorMessage />;
-  if (!countries) return;
+  if (!countries) return <NoCountriesFound />;
 
   return (
     <div className="cards-layout">
