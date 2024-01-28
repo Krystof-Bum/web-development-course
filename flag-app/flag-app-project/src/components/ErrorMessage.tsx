@@ -1,8 +1,7 @@
-interface Props {
-  searchInput: string;
-}
+import { useCountries } from "../hooks";
 
-const ErrorMessage = ({ searchInput }: Props) => {
+const ErrorMessage = () => {
+  const { searchInput } = useCountries();
   return (
     <p>
       No country matched with:

@@ -1,15 +1,30 @@
 import { useState } from "react";
-import { CardWrapper, Header, SearchFilterWrapper } from "./components";
+
+import CountriesContextProvider from "./CountriesContextProvider";
+import {
+  CardDetail,
+  CardWrapper,
+  Header,
+  SearchFilterWrapper,
+} from "./components";
+import { useDarkMode } from "./hooks";
+import { CardDetailType, Country } from "./interfaces";
+
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
-import { useDarkMode } from "./hooks";
 
 function App() {
-  const [searchInput, setSearchInput] = useState("");
   const { theme } = useDarkMode();
 
-  const handleSearch = (searchText: string) => {
-    setSearchInput(searchText);
+  const [cardDetail, setCardDetail] = useState<CardDetailType>(
+    {} as CardDetailType
+  );
+  const handleCardClick = (country: Country) => {
+    setCardDetail({ detailCountry: country, isOpened: true });
+  };
+
+  const handleClickBack = () => {
+    setCardDetail((prev) => ({ ...prev, isOpened: false }));
   };
 
   return (
@@ -17,8 +32,20 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-        <SearchFilterWrapper onSearch={handleSearch} />
-        <CardWrapper searchInput={searchInput} />
+        <CountriesContextProvider>
+          {!cardDetail.isOpened && (
+            <>
+              <SearchFilterWrapper />
+              <CardWrapper handleCardClick={handleCardClick} />
+            </>
+          )}
+          {cardDetail.isOpened && (
+            <CardDetail
+              handleClickBack={handleClickBack}
+              country={cardDetail.detailCountry}
+            />
+          )}
+        </CountriesContextProvider>
       </ThemeProvider>
     </>
   );

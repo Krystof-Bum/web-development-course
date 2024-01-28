@@ -1,18 +1,23 @@
 import { useDarkMode } from "../hooks";
-import CardItem from "./CardItem";
 import { Country } from "../interfaces";
+import CardItem from "./CardItem";
 
 interface Props {
   country: Country;
+  handleCardClick: (country: Country) => void;
 }
 
-const Card = ({ country }: Props) => {
+const Card = ({ country, handleCardClick }: Props) => {
   const { mode } = useDarkMode();
+
+  const baseClassName =
+    "w-64 h-[350px] rounded-md shadow-md overflow-hidden cursor-pointer";
+  const darkModeClassName = mode === "dark" ? "shadow-white" : "";
+
   return (
     <div
-      className={`w-64 rounded-md shadow-md overflow-hidden ${
-        mode === "dark" ? "shadow-white" : ""
-      }`}
+      onClick={() => handleCardClick(country)}
+      className={`${baseClassName} ${darkModeClassName}`}
     >
       <div>
         <img

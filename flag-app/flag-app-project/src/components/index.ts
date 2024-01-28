@@ -6,3 +6,4 @@ export * from "./Filter";
 export * from "./Header";
 export * from "./Search";
 export * from "./SearchFilterWrapper";
+export * from "./CardDetail";
