@@ -8,6 +8,8 @@ interface CountriesContextType {
   searchInput: string;
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
   handleSearch: (searchText: string) => void;
+  filterValue: string;
+  handleFilter: (element: string) => void;
 }
 
 export const CountriesContext = React.createContext<CountriesContextType>(
