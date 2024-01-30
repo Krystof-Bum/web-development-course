@@ -4,15 +4,12 @@ import { useApiData } from "./hooks";
 
 const CountriesContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [searchInput, setSearchInput] = useState("");
-  const [filterValue, setFilterValue] = useState("Filter by Region");
+  const [filterValue, setFilterValue] = useState("");
   const {
     data: countries,
     error,
     isLoading,
-  } = useApiData(
-    searchInput,
-    filterValue === "Filter by Region" ? "" : filterValue
-  );
+  } = useApiData(searchInput, filterValue || "");
 
   const handleSearch = (searchText: string) => {
     setSearchInput(searchText);

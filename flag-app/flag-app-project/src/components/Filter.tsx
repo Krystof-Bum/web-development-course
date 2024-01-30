@@ -18,11 +18,15 @@ export const Filter = () => {
     { value: "oceania", label: "Oceania" },
   ];
 
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    handleFilter(e.target.value);
+  };
+
   return (
     <div className="relative">
       <select
         value={filterValue}
-        onChange={(e) => handleFilter(e.target.value)}
+        onChange={handleChange}
         className={`${baseClassName} ${darkModeClassName}`}
       >
         {regions.map((region) => (
