@@ -9,7 +9,7 @@ const CountriesContextProvider: FC<PropsWithChildren> = ({ children }) => {
     data: countries,
     error,
     isLoading,
-  } = useApiData(searchInput, filterValue || "");
+  } = useApiData(searchInput, filterValue);
 
   const handleSearch = (searchText: string) => {
     setSearchInput(searchText);
